@@ -1,0 +1,24 @@
+<!-- home.component.html -->
+
+<div *ngIf="userData">
+  <h2>Welcome to the Home Page</h2>
+
+  <div *ngFor="let user of userData">
+    <p>User Information:</p>
+    <ul>
+      <li><strong>User ID:</strong> {{ user.id }}</li>
+      <li><strong>Username:</strong> {{ user.username }}</li>
+      <li><strong>Full Name:</strong> {{ user.fullName }}</li>
+      <li><strong>Roles:</strong>
+        <ul>
+          <li *ngFor="let authority of user.authorities">{{ authority.authority }}</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div *ngIf="error">
+  <p>An error occurred while fetching user data.</p>
+  <p>Error Details: {{ error | json }}</p>
+</div>
