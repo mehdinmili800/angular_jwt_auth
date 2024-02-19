@@ -2,6 +2,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { YourDataService } from '../../service/yourdata.service';
+import {AuthenticationService} from "../../service/authentication.service";
+import { Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,9 @@ export class HomeComponent implements OnInit {
   userData: any; // Adjust the type based on your actual data structure
   error: any;
 
-  constructor(private dataService: YourDataService) {}
+  constructor(private dataService: YourDataService,
+              private authService:AuthenticationService,
+              private router:Router) {}
 
   // home.component.ts
 
@@ -28,5 +32,18 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
+  logout(): void {
+    // Call the logout method from AuthenticationService
+    this.authService.logout();
+
+    // Navigate to the login page
+    this.router.navigate(['/login']);
+  }
+
+
+
+
+
 
 }

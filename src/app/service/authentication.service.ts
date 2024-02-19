@@ -23,4 +23,12 @@ export class AuthenticationService {
         this.tokenStorageService.saveToken(response.access_token);
       }));
   }
+
+
+  logout(): void {
+    // Remove the token from local storage upon logout
+    this.tokenStorageService.removeToken();
+  }
+
+
 }

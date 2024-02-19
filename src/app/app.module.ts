@@ -8,13 +8,17 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./AppRoutingModule";
 import {TokenInterceptor} from "./token/TokenInterceptor";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { CreateUserComponent } from './pages/create-user/create-user.component';
+import { HomeTeacherComponent } from './pages/home-teacher/home-teacher.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    CreateUserComponent,
+    HomeTeacherComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +26,7 @@ import {FormsModule} from "@angular/forms";
     RouterOutlet,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true
