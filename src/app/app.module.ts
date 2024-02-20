@@ -9,7 +9,6 @@ import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./AppRoutingModule";
 import {TokenInterceptor} from "./token/TokenInterceptor";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { HomeTeacherComponent } from './pages/home-teacher/home-teacher.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { HomeTeacherComponent } from './pages/home-teacher/home-teacher.componen
     AppComponent,
     LoginComponent,
     HomeComponent,
-    CreateUserComponent,
     HomeTeacherComponent
   ],
   imports: [

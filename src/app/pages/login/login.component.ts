@@ -18,9 +18,16 @@ export class LoginComponent {
 
   login(): void {
     this.authService.authenticate(this.username, this.password).subscribe(
-      () => {
-        // Navigate to the home page after successful login
-        this.router.navigate(['/home']);
+      response => {
+        // Check the user role from the authentication response
+        const role = response.role;
+
+        // Redirect based on user role
+        if (role === 'ROLE_ADMIN') {
+          this.router.navigate(['/home']); // Replace 'admin' with your admin route
+        } else if (role === 'ROLE_TEACHER') {
+          this.router.navigate(['/home-teacher']); // Replace 'teacher' with your teacher route
+        }
       },
       error => {
         // Handle login error
